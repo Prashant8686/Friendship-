@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Friendship Day | Prashant Chavan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root{
+    --ink: #241934;
+    --ink-soft: #3a2a52;
+    --paper: #fff8ee;
+    --paper-warm: #fffdf7;
+    --coral: #ff6b5b;
+    --marigold: #ffb84d;
+    --teal: #2bb8a6;
+    --text-on-ink: #f3ecff;
+    --text-muted: #cabcdd;
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-hand: 'Caveat', cursive;
+
+    --radius: 6px;
+    --container: 1080px;
+  }
+
+  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    width: 100%;
+  }
+  img{ max-width:100%; display:block; }
+  h1,h2,h3{ font-family: var(--font-display); margin:0; }
+  a{ color: inherit; }
+  button{ font-family: inherit; touch-action: manipulation; }
+
+  :focus-visible{
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-hand);
+    font-size: 1.4rem;
+    color: var(--coral);
+    display:inline-block;
+    transform: rotate(-2deg);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    position: relative;
+    min-height: 100vh;      /* fallback for older mobile browsers */
+    min-height: 100svh;     /* accounts for the address bar on Pixel/Vivo Chrome */
+    background: radial-gradient(120% 140% at 15% -10%, #3a2a52 0%, var(--ink) 55%, #1a1224 100%);
+    color: var(--text-on-ink);
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 100px 20px 70px;
+    overflow:hidden;
+  }
+  .hero-thread-bg{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    opacity: 0.35;
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width: 780px; width:100%; }
+  .hero .eyebrow{ color: var(--marigold); }
+  .hero h1{
+    font-size: clamp(2.2rem, 8.5vw, 5rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 16px 0 6px;
+    word-break: break-word;
+  }
+  .hero h1 .accent{
+    font-style: italic;
+    font-weight: 500;
+    color: var(--coral);
+  }
+  .hero-underline{
+    width: min(340px, 78%);
+    height: 24px;
+    margin: 4px auto 20px;
+    display:block;
+  }
+  .hero-underline path{
+    fill:none;
+    stroke: var(--teal);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 520;
+    stroke-dashoffset: 520;
+    animation: draw 1.6s 0.5s ease forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-pair{
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 3vw, 1.05rem);
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    padding: 0 8px;
+  }
+  .hero-pair strong{ color: var(--text-on-ink); font-weight:600; }
+
+  .scroll-cue{
+    position:absolute;
+    bottom: 26px; left:50%;
+    transform: translateX(-50%);
+    display:flex; flex-direction:column; align-items:center;
+    gap:8px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    z-index:2;
+    padding: 6px;
+  }
+  .scroll-cue svg{ animation: bob 2s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
+
+  /* floating thread dots */
+  .floaty{
+    position:absolute;
+    border-radius:50%;
+    opacity:0.5;
+    animation: float 7s ease-in-out infinite;
+  }
+  @keyframes float{ 0%,100%{ transform: translateY(0) rotate(0deg);} 50%{ transform: translateY(-22px) rotate(8deg);} }
+
+  /* ============================================================
+     SECTION SHELL
+     ============================================================ */
+  section{ padding: 90px 0; position:relative; }
+  .section-head{ text-align:center; max-width: 620px; margin: 0 auto 48px; padding: 0 4px; }
+  .section-head h2{
+    font-size: clamp(1.6rem, 5.5vw, 2.75rem);
+    font-weight: 600;
+    margin-top: 10px;
+    line-height:1.18;
+  }
+  .section-head p{ color: #5b4d6e; margin-top: 12px; font-size: clamp(0.92rem, 3vw, 1.05rem); }
+
+  .reveal{
+    opacity:0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  /* ============================================================
+     MEMORY BOARD
+     ============================================================ */
+  .board-section{ background: var(--paper); }
+  .board{
+    position:relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 6px 10px;
+  }
+  .board-threads{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    z-index:1;
+  }
+  .board-threads path{
+    fill:none;
+    stroke: var(--coral);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    opacity: 0.55;
+    transition: stroke-dashoffset 1.8s ease;
+  }
+  .board-threads.is-visible path{ stroke-dashoffset: 0; }
+
+  .board-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 18px;
+  }
+  .polaroid{
+    grid-column: span 2;
+    background: var(--paper-warm);
+    padding: 14px 14px 36px;
+    box-shadow: 0 10px 26px -12px rgba(36,25,52,0.35);
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: default;
+  }
+  .polaroid:nth-child(1){ transform: rotate(-6deg); }
+  .polaroid:nth-child(2){ transform: rotate(4deg); margin-top: 34px; }
+  .polaroid:nth-child(3){ transform: rotate(-3deg); }
+  .polaroid:nth-child(4){ transform: rotate(5deg); }
+  .polaroid:nth-child(5){ transform: rotate(-5deg); margin-top: 34px; }
+  .polaroid:nth-child(6){ transform: rotate(3deg); }
+  .polaroid:hover{
+    transform: rotate(0deg) scale(1.05) translateY(-6px) !important;
+    box-shadow: 0 22px 34px -14px rgba(36,25,52,0.45);
+    z-index: 5;
+  }
+  .polaroid .tape{
+    position:absolute;
+    top: -12px; left:50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 58px; height: 20px;
+    background: rgba(255,184,77,0.55);
+    border: 1px solid rgba(255,184,77,0.7);
+  }
+  .polaroid .photo{
+    width:100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1px;
+    overflow:hidden;
+    background: #eee;
+  }
+  .polaroid .photo img{ width:100%; height:100%; object-fit:cover; }
+  .polaroid .photo .placeholder{
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #fff;
+  }
+  .polaroid .caption{
+    font-family: var(--font-hand);
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    text-align:center;
+    margin-top: 8px;
+    line-height:1.15;
+  }
+
+  /* Two columns on tablets/large phones */
+  @media (max-width: 760px){
+    .board-grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .polaroid{ grid-column: span 1; margin-top:0 !important; }
+    .board-threads{ display:none; }
+  }
+  /* Flatten the scattered tilt on narrow phones (Pixel/Vivo width range)
+     so cards don't crowd or clip against the screen edge */
+  @media (max-width: 420px){
+    .polaroid:nth-child(1),
+    .polaroid:nth-child(2),
+    .polaroid:nth-child(3),
+    .polaroid:nth-child(4),
+    .polaroid:nth-child(5),
+    .polaroid:nth-child(6){
+      transform: rotate(-1.5deg);
+    }
+  }
+
+  /* ============================================================
+     COUNTER
+     ============================================================ */
+  .counter-section{
+    background: var(--ink);
+    color: var(--text-on-ink);
+    text-align:center;
+  }
+  .counter-section .eyebrow{ color: var(--teal); }
+  .counter-number{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3.2rem, 16vw, 8rem);
+    line-height: 1;
+    margin: 12px 0 8px;
+    background: linear-gradient(90deg, var(--coral), var(--marigold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .counter-label{ font-size: clamp(0.95rem, 3vw, 1.1rem); color: var(--text-muted); }
+  .counter-date{ margin-top: 18px; font-family: var(--font-hand); font-size: 1.2rem; color: var(--marigold); }
+
+  /* ============================================================
+     LETTER
+     ============================================================ */
+  .letter-section{ background: var(--paper); }
+  .envelope-wrap{
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    perspective: 1400px;
+  }
+  .envelope{
+    position:relative;
+    width: 100%;
+    background: linear-gradient(155deg, #ffe3b0, var(--marigold));
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 20px 40px -18px rgba(36,25,52,0.4);
+    cursor:pointer;
+    user-select:none;
+    touch-action: manipulation;
+  }
+  .envelope-body{
+    background: var(--paper-warm);
+    border-radius: 5px;
+    width: 100%;
+    aspect-ratio: 16 / 9;         /* scales with the envelope's own width, no fixed px */
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom: 14px;
+  }
+  /* Percentage-based flap (clip-path) instead of a fixed-pixel CSS
+     triangle — this is what broke on narrow phone screens before. */
+  .envelope-flap{
+    position:absolute;
+    top:0; left:0; right:0;
+    height: 58%;
+    background: var(--marigold);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.6s cubic-bezier(.4,.2,.2,1);
+    z-index: 3;
+  }
+  .envelope.open .envelope-flap{ transform: rotateX(180deg); }
+  .envelope-hint{
+    font-family: var(--font-hand);
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    color: var(--ink-soft);
+    z-index:1;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .envelope.open .envelope-hint{ display:none; }
+
+  .letter-paper{
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    margin: 22px auto 0;
+    background: var(--paper-warm);
+    border-radius: 6px;
+    padding: 30px 24px;
+    box-shadow: 0 16px 34px -20px rgba(36,25,52,0.4);
+    opacity:0;
+    transform: translateY(-14px);
+    max-height:0;
+    overflow:hidden;
+    transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease, padding 0.6s ease, margin 0.6s ease;
+  }
+  .letter-paper.is-open{
+    opacity:1; transform: translateY(0); max-height: 700px;
+  }
+  .letter-text{
+    font-family: var(--font-hand);
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    white-space: pre-line;
+  }
+  .letter-sign{
+    margin-top: 16px;
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    color: var(--coral);
+    text-align: right;
+  }
+
+  /* ============================================================
+     SEND LOVE / CTA
+     ============================================================ */
+  .love-section{
+    background: linear-gradient(160deg, #2b1b3d, var(--ink));
+    color: var(--text-on-ink);
+    text-align:center;
+    overflow:hidden;
+  }
+  .love-section .eyebrow{ color: var(--coral); }
+  .knot-btn{
+    margin-top: 22px;
+    background: var(--coral);
+    color: #fff;
+    border:none;
+    padding: 15px 34px;
+    font-size: 1rem;
+    font-weight:600;
+    border-radius: 999px;
+    cursor:pointer;
+    box-shadow: 0 14px 26px -10px rgba(255,107,91,0.55);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    min-height: 48px;   /* comfortable tap target on phones */
+  }
+  .knot-btn:hover{ transform: translateY(-3px); box-shadow: 0 18px 32px -10px rgba(255,107,91,0.7); background:#ff8171; }
+  .knot-btn:active{ transform: translateY(0); }
+
+  .love-message{
+    margin-top: 26px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+    color: var(--marigold);
+    opacity:0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 0 12px;
+  }
+  .love-message.show{ opacity:1; transform:scale(1); }
+
+  canvas#confetti{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    z-index: 1;
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer{
+    background: var(--ink);
+    color: var(--text-muted);
+    text-align:center;
+    padding: 44px 20px 34px;
+  }
+  footer .names{
+    font-family: var(--font-hand);
+    font-size: 1.6rem;
+    color: var(--text-on-ink);
+    margin-bottom: 8px;
+  }
+  footer svg{ margin: 0 auto 14px; display:block; }
+  footer .fine{ font-size: 0.82rem; }
+
+  /* Tighter section rhythm on small phones */
+  @media (max-width: 480px){
+    section{ padding: 64px 0; }
+    .board{ padding: 24px 4px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <svg class="hero-thread-bg" viewBox="0 0 800 800" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -50 120 Q 200 40 400 150 T 850 100" stroke="#ffb84d" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M -50 650 Q 250 720 450 620 T 850 700" stroke="#2bb8a6" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M -50 400 Q 300 320 500 420 T 850 380" stroke="#ff6b5b" stroke-width="2" fill="none" opacity="0.4"/>
+  </svg>
+  <div class="floaty" style="width:10px;height:10px;background:var(--coral);top:22%;left:12%;"></div>
+  <div class="floaty" style="width:14px;height:14px;background:var(--teal);top:65%;left:82%;animation-delay:1.5s;"></div>
+  <div class="floaty" style="width:8px;height:8px;background:var(--marigold);top:78%;left:20%;animation-delay:3s;"></div>
+
+  <div class="hero-inner">
+    <span class="eyebrow" id="hero-eyebrow">a little something for you</span>
+    <h1 id="hero-heading">Happy <span class="accent">Friendship</span> Day</h1>
+    <svg class="hero-underline" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M4 18 Q 100 2 200 16 T 396 10"/>
+    </svg>
+    <p class="hero-pair" id="hero-pair"><strong>Yogini</strong> &amp; <strong>Bhagya</strong> — best of pals</p>
+  </div>
+
+  <a href="#board" class="scroll-cue" aria-label="Scroll to memory board">
+    <span>scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none" aria-hidden="true">
+      <path d="M8 1v16M8 17l-6-6M8 17l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</header>
+
+<!-- ================= MEMORY BOARD ================= -->
+<section class="board-section" id="board">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--coral)">the memory board</span>
+      <h2>A few moments worth keeping</h2>
+      <p>Pinned, taped, a little crooked — just like real memories.</p>
+    </div>
+
+    <div class="board">
+      <svg class="board-threads" id="board-threads" viewBox="0 0 980 620" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 90 120 Q 250 40 340 130 Q 430 220 570 130 Q 700 40 860 120"/>
+        <path d="M 90 460 Q 250 540 340 450 Q 430 360 570 450 Q 700 540 860 460"/>
+      </svg>
+      <div class="board-grid" id="board-grid">
+        <!-- polaroids injected by JS from CONFIG.memories -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNTER ================= -->
+<section class="counter-section">
+  <div class="wrap reveal">
+    <span class="eyebrow">the tally</span>
+    <div class="counter-number"><span id="counter-value">0</span></div>
+    <div class="counter-label">days of friendship, and counting</div>
+    <div class="counter-date" id="counter-date"></div>
+  </div>
+</section>
+
+<!-- ================= LETTER ================= -->
+<section class="letter-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--marigold)">a note, sealed with a thread</span>
+      <h2>Open when you have a minute</h2>
+    </div>
+
+    <div class="envelope-wrap reveal">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-controls="letter-paper">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <span class="envelope-hint">tap to open ✉️</span>
+        </div>
+      </div>
+      <div class="letter-paper" id="letter-paper">
+        <div class="letter-text" id="letter-text"></div>
+        <div class="letter-sign" id="letter-sign"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEND LOVE ================= -->
+<section class="love-section" id="send-love">
+  <canvas id="confetti"></canvas>
+  <div class="wrap" style="position:relative; z-index:2;">
+    <span class="eyebrow">last thing</span>
+    <h2 style="color:var(--text-on-ink); font-size:clamp(1.6rem,6vw,2.6rem);">Tie the knot on it</h2>
+    <button class="knot-btn" id="knot-btn">Tie the Knot 🧵</button>
+    <div class="love-message" id="love-message"></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+    <circle cx="23" cy="23" r="14" stroke="var(--coral)" stroke-width="2.5"/>
+    <circle cx="23" cy="23" r="7" stroke="var(--teal)" stroke-width="2.5"/>
+  </svg>
+  <div class="names" id="footer-names">Yogini &amp; Bhagya</div>
+  <div class="fine">made with care, for Friendship Day</div>
+</footer>
+
+<script>
+/* ================================================================
+   CUSTOMIZE ME
+   Everything on the page is generated from this one object.
+   Edit the values below — the whole site updates automatically.
+   No need to touch anything past the CONFIG block.
+   ================================================================ */
+const CONFIG = {
+  // Names
+  yourName: "Yogini",
+  friendName: "Bhagya",
+
+  // Shown under the big hero title
+  heroEyebrow: "a little something for you",
+  heroTagline: "best of pals",
+
+  // Used to calculate the "days of friendship" counter.
+  // Format: YYYY-MM-DD (the day you met, or any date that matters to you)
+  friendshipStartDate: "2023-06-05",
+
+  // The memory board — up to 6 photos look best.
+  // src: path to your own photo (e.g. "photos/trip.jpg"). Leave empty ""
+  //      to show a colored placeholder with initials instead.
+  // initials: shown when there's no photo yet
+  // caption: short handwritten-style caption under the photo
+  // colors: gradient used for the placeholder tile
+  memories: [
+    { src: "/1.png", initials: "🎓", caption: "", colors: ["#ff6b5b", "#ffb84d"] },
+    { src: "/2.png", initials: "🎉", caption: "", colors: ["#2bb8a6", "#3a2a52"] },
+    { src: "/3.png", initials: "🚗", caption: "", colors: ["#ffb84d", "#ff6b5b"] },
+    { src: "/4.png", initials: "☕", caption: "", colors: ["#3a2a52", "#2bb8a6"] },
+    { src: "/5.png", initials: "🌧️", caption: "", colors: ["#ff6b5b", "#2bb8a6"] },
+    { src: "/6.png", initials: "📸", caption: "", colors: ["#ffb84d", "#3a2a52"] }
+  ],
+
+  // The letter inside the envelope. Use \n for line breaks.
+  letterMessage:
+`Happy friendship day bhagya 😚 thankyou for coming in my life 🫶🏻🫂 I'm so lucky to have you 💕 love you more babe 😘.
+
+Here's to more of it.`,
+
+  // Message revealed after clicking "Tie the Knot"
+  finalMessage: "Happy Friendship Day — grateful for you, always. 🧵"
+};
+/* ================================================================
+   End of customization. The code below reads CONFIG and builds
+   the page — you shouldn't need to edit past this line.
+   ================================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Hero ----
+  document.getElementById('hero-eyebrow').textContent = CONFIG.heroEyebrow;
+  document.getElementById('hero-pair').innerHTML =
+    `<strong>${escapeHtml(CONFIG.yourName)}</strong> &amp; <strong>${escapeHtml(CONFIG.friendName)}</strong> — ${escapeHtml(CONFIG.heroTagline)}`;
+
+  // ---- Memory board ----
+  const grid = document.getElementById('board-grid');
+  CONFIG.memories.slice(0, 6).forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'polaroid';
+    const photoInner = m.src
+      ? `<img src="${m.src}" alt="${escapeHtml(m.caption)}" onerror="this.parentElement.querySelector('img')?.remove(); this.parentElement.insertAdjacentHTML('afterbegin', '<div class=&quot;placeholder&quot; style=&quot;background:linear-gradient(135deg, ${m.colors[0]}, ${m.colors[1]})&quot;>${m.initials}</div>')">`
+      : `<div class="placeholder" style="background:linear-gradient(135deg, ${m.colors[0]}, ${m.colors[1]})">${m.initials}</div>`;
+    card.innerHTML = `
+      <div class="tape"></div>
+      <div class="photo">${photoInner}</div>
+      <div class="caption">${escapeHtml(m.caption)}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // ---- Counter ----
+  const start = new Date(CONFIG.friendshipStartDate);
+  const days = isNaN(start) ? 0 : Math.max(0, Math.floor((Date.now() - start.getTime()) / 86400000));
+  document.getElementById('counter-date').textContent =
+    isNaN(start) ? '' : `since ${start.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}`;
+
+  // ---- Letter ----
+  document.getElementById('letter-text').textContent = CONFIG.letterMessage;
+  document.getElementById('letter-sign').textContent = `— ${CONFIG.yourName}`;
+
+  // ---- Footer ----
+  document.getElementById('footer-names').textContent = `${CONFIG.yourName} & ${CONFIG.friendName}`;
+
+  // ---- Envelope open/close ----
+  const envelope = document.getElementById('envelope');
+  const letterPaper = document.getElementById('letter-paper');
+  function toggleEnvelope() {
+    const isOpen = envelope.classList.toggle('open');
+    envelope.setAttribute('aria-expanded', String(isOpen));
+    letterPaper.classList.toggle('is-open', isOpen);
+    if (isOpen) {
+      setTimeout(() => letterPaper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
+    }
+  }
+  envelope.addEventListener('click', toggleEnvelope);
+  envelope.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleEnvelope(); }
+  });
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('.reveal');
+  const threadPath = document.getElementById('board-threads');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  const threadObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+  }, { threshold: 0.3 });
+  if (threadPath) threadObserver.observe(threadPath);
+
+  // ---- Counter animation ----
+  const counterEl = document.getElementById('counter-value');
+  let counted = false;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !counted) {
+        counted = true;
+        animateCount(counterEl, days, prefersReducedMotion ? 0 : 1400);
+      }
+    });
+  }, { threshold: 0.5 });
+  counterObserver.observe(counterEl);
+
+  function animateCount(el, target, duration) {
+    if (duration === 0) { el.textContent = target; return; }
+    const startTime = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ---- Confetti / "tie the knot" ----
+  const knotBtn = document.getElementById('knot-btn');
+  const loveMessage = document.getElementById('love-message');
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let confettiRunning = false;
+
+  function resizeCanvas() {
+    const section = document.getElementById('send-love');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = section.clientWidth * dpr;
+    canvas.height = section.clientHeight * dpr;
+    canvas.style.width = section.clientWidth + 'px';
+    canvas.style.height = section.clientHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('orientationchange', resizeCanvas);
+  resizeCanvas();
+
+  const confettiColors = ['#ff6b5b', '#ffb84d', '#2bb8a6', '#f3ecff'];
+
+  function burstConfetti() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    particles = Array.from({ length: 90 }, () => ({
+      x: w / 2,
+      y: h * 0.35,
+      vx: (Math.random() - 0.5) * 9,
+      vy: Math.random() * -7 - 2,
+      size: Math.random() * 6 + 4,
+      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+      rotation: Math.random() * 360,
+      spin: (Math.random() - 0.5) * 10,
+      life: 0
+    }));
+    if (!confettiRunning) { confettiRunning = true; requestAnimationFrame(renderConfetti); }
+  }
+
+  function renderConfetti() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    ctx.clearRect(0, 0, w, h);
+    let alive = false;
+    particles.forEach(p => {
+      p.vy += 0.22;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rotation += p.spin;
+      p.life++;
+      if (p.y < h + 20) alive = true;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      ctx.restore();
+    });
+    if (alive) requestAnimationFrame(renderConfetti);
+    else { confettiRunning = false; ctx.clearRect(0, 0, w, h); }
+  }
+
+  knotBtn.addEventListener('click', () => {
+    loveMessage.textContent = CONFIG.finalMessage;
+    loveMessage.classList.add('show');
+    if (!prefersReducedMotion) burstConfetti();
+  });
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+});
+</script>
+</body>
+</html>
