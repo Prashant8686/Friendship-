@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Happy Friendship Day | Prashant Chavan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendship Day</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
     --container: 1080px;
   }
 
-  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  *{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
   body{
     margin:0;
@@ -38,12 +38,11 @@
     background: var(--paper);
     color: var(--ink);
     overflow-x: hidden;
-    width: 100%;
   }
   img{ max-width:100%; display:block; }
   h1,h2,h3{ font-family: var(--font-display); margin:0; }
   a{ color: inherit; }
-  button{ font-family: inherit; touch-action: manipulation; }
+  button{ font-family: inherit; }
 
   :focus-visible{
     outline: 3px solid var(--teal);
@@ -53,7 +52,7 @@
   .wrap{
     max-width: var(--container);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
   }
 
   .eyebrow{
@@ -73,8 +72,7 @@
      ============================================================ */
   .hero{
     position: relative;
-    min-height: 100vh;      /* fallback for older mobile browsers */
-    min-height: 100svh;     /* accounts for the address bar on Pixel/Vivo Chrome */
+    min-height: 100svh;
     background: radial-gradient(120% 140% at 15% -10%, #3a2a52 0%, var(--ink) 55%, #1a1224 100%);
     color: var(--text-on-ink);
     display:flex;
@@ -82,7 +80,7 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding: 100px 20px 70px;
+    padding: 120px 24px 80px;
     overflow:hidden;
   }
   .hero-thread-bg{
@@ -91,15 +89,14 @@
     opacity: 0.35;
     pointer-events:none;
   }
-  .hero-inner{ position:relative; z-index:2; max-width: 780px; width:100%; }
+  .hero-inner{ position:relative; z-index:2; max-width: 780px; }
   .hero .eyebrow{ color: var(--marigold); }
   .hero h1{
-    font-size: clamp(2.2rem, 8.5vw, 5rem);
+    font-size: clamp(2.6rem, 7vw, 5rem);
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.05;
     letter-spacing: -0.01em;
-    margin: 16px 0 6px;
-    word-break: break-word;
+    margin: 18px 0 6px;
   }
   .hero h1 .accent{
     font-style: italic;
@@ -107,9 +104,9 @@
     color: var(--coral);
   }
   .hero-underline{
-    width: min(340px, 78%);
-    height: 24px;
-    margin: 4px auto 20px;
+    width: min(420px, 70%);
+    height: 26px;
+    margin: 4px auto 22px;
     display:block;
   }
   .hero-underline path{
@@ -125,25 +122,23 @@
 
   .hero-pair{
     font-family: var(--font-body);
-    font-size: clamp(0.9rem, 3vw, 1.05rem);
+    font-size: 1.05rem;
     color: var(--text-muted);
-    margin-bottom: 28px;
-    padding: 0 8px;
+    margin-bottom: 34px;
   }
   .hero-pair strong{ color: var(--text-on-ink); font-weight:600; }
 
   .scroll-cue{
     position:absolute;
-    bottom: 26px; left:50%;
+    bottom: 34px; left:50%;
     transform: translateX(-50%);
     display:flex; flex-direction:column; align-items:center;
     gap:8px;
     color: var(--text-muted);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     z-index:2;
-    padding: 6px;
   }
   .scroll-cue svg{ animation: bob 2s ease-in-out infinite; }
   @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
@@ -160,15 +155,15 @@
   /* ============================================================
      SECTION SHELL
      ============================================================ */
-  section{ padding: 90px 0; position:relative; }
-  .section-head{ text-align:center; max-width: 620px; margin: 0 auto 48px; padding: 0 4px; }
+  section{ padding: 110px 0; position:relative; }
+  .section-head{ text-align:center; max-width: 620px; margin: 0 auto 64px; }
   .section-head h2{
-    font-size: clamp(1.6rem, 5.5vw, 2.75rem);
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
     font-weight: 600;
     margin-top: 10px;
-    line-height:1.18;
+    line-height:1.15;
   }
-  .section-head p{ color: #5b4d6e; margin-top: 12px; font-size: clamp(0.92rem, 3vw, 1.05rem); }
+  .section-head p{ color: #5b4d6e; margin-top: 14px; font-size:1.05rem; }
 
   .reveal{
     opacity:0;
@@ -185,7 +180,7 @@
     position:relative;
     max-width: 980px;
     margin: 0 auto;
-    padding: 30px 6px 10px;
+    padding: 40px 10px 10px;
   }
   .board-threads{
     position:absolute; inset:0;
@@ -216,7 +211,7 @@
   .polaroid{
     grid-column: span 2;
     background: var(--paper-warm);
-    padding: 14px 14px 36px;
+    padding: 14px 14px 40px;
     box-shadow: 0 10px 26px -12px rgba(36,25,52,0.35);
     border-radius: 2px;
     position: relative;
@@ -238,7 +233,7 @@
     position:absolute;
     top: -12px; left:50%;
     transform: translateX(-50%) rotate(-3deg);
-    width: 58px; height: 20px;
+    width: 64px; height: 22px;
     background: rgba(255,184,77,0.55);
     border: 1px solid rgba(255,184,77,0.7);
   }
@@ -255,35 +250,22 @@
     display:flex; align-items:center; justify-content:center;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #fff;
   }
   .polaroid .caption{
     font-family: var(--font-hand);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     color: var(--ink-soft);
     text-align:center;
-    margin-top: 8px;
-    line-height:1.15;
+    margin-top: 10px;
+    line-height:1.1;
   }
 
-  /* Two columns on tablets/large phones */
   @media (max-width: 760px){
-    .board-grid{ grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .board-grid{ grid-template-columns: repeat(2, 1fr); }
     .polaroid{ grid-column: span 1; margin-top:0 !important; }
     .board-threads{ display:none; }
-  }
-  /* Flatten the scattered tilt on narrow phones (Pixel/Vivo width range)
-     so cards don't crowd or clip against the screen edge */
-  @media (max-width: 420px){
-    .polaroid:nth-child(1),
-    .polaroid:nth-child(2),
-    .polaroid:nth-child(3),
-    .polaroid:nth-child(4),
-    .polaroid:nth-child(5),
-    .polaroid:nth-child(6){
-      transform: rotate(-1.5deg);
-    }
   }
 
   /* ============================================================
@@ -298,58 +280,53 @@
   .counter-number{
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(3.2rem, 16vw, 8rem);
+    font-size: clamp(4rem, 14vw, 8rem);
     line-height: 1;
-    margin: 12px 0 8px;
+    margin: 14px 0 8px;
     background: linear-gradient(90deg, var(--coral), var(--marigold));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .counter-label{ font-size: clamp(0.95rem, 3vw, 1.1rem); color: var(--text-muted); }
-  .counter-date{ margin-top: 18px; font-family: var(--font-hand); font-size: 1.2rem; color: var(--marigold); }
+  .counter-label{ font-size: 1.1rem; color: var(--text-muted); }
+  .counter-date{ margin-top: 22px; font-family: var(--font-hand); font-size: 1.3rem; color: var(--marigold); }
 
   /* ============================================================
      LETTER
      ============================================================ */
   .letter-section{ background: var(--paper); }
   .envelope-wrap{
-    max-width: 480px;
-    width: 100%;
+    max-width: 560px;
     margin: 0 auto;
     perspective: 1400px;
   }
   .envelope{
     position:relative;
-    width: 100%;
     background: linear-gradient(155deg, #ffe3b0, var(--marigold));
     border-radius: 8px;
     padding: 6px;
     box-shadow: 0 20px 40px -18px rgba(36,25,52,0.4);
     cursor:pointer;
     user-select:none;
-    touch-action: manipulation;
   }
   .envelope-body{
     background: var(--paper-warm);
     border-radius: 5px;
-    width: 100%;
-    aspect-ratio: 16 / 9;         /* scales with the envelope's own width, no fixed px */
+    min-height: 210px;
     position:relative;
     overflow:hidden;
     display:flex;
     align-items:flex-end;
     justify-content:center;
-    padding-bottom: 14px;
+    padding-bottom: 18px;
   }
-  /* Percentage-based flap (clip-path) instead of a fixed-pixel CSS
-     triangle — this is what broke on narrow phone screens before. */
   .envelope-flap{
     position:absolute;
     top:0; left:0; right:0;
-    height: 58%;
-    background: var(--marigold);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    height: 0;
+    border-left: 280px solid transparent;
+    border-right: 280px solid transparent;
+    border-top: 130px solid var(--marigold);
     transform-origin: top center;
     transition: transform 0.6s cubic-bezier(.4,.2,.2,1);
     z-index: 3;
@@ -357,22 +334,19 @@
   .envelope.open .envelope-flap{ transform: rotateX(180deg); }
   .envelope-hint{
     font-family: var(--font-hand);
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-size: 1.2rem;
     color: var(--ink-soft);
     z-index:1;
-    padding: 0 10px;
-    text-align: center;
   }
   .envelope.open .envelope-hint{ display:none; }
 
   .letter-paper{
     position: relative;
-    max-width: 480px;
-    width: 100%;
-    margin: 22px auto 0;
+    max-width: 540px;
+    margin: 26px auto 0;
     background: var(--paper-warm);
     border-radius: 6px;
-    padding: 30px 24px;
+    padding: 38px 34px;
     box-shadow: 0 16px 34px -20px rgba(36,25,52,0.4);
     opacity:0;
     transform: translateY(-14px);
@@ -381,19 +355,19 @@
     transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease, padding 0.6s ease, margin 0.6s ease;
   }
   .letter-paper.is-open{
-    opacity:1; transform: translateY(0); max-height: 700px;
+    opacity:1; transform: translateY(0); max-height: 600px;
   }
   .letter-text{
     font-family: var(--font-hand);
-    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+    font-size: 1.5rem;
     line-height: 1.5;
     color: var(--ink-soft);
     white-space: pre-line;
   }
   .letter-sign{
-    margin-top: 16px;
+    margin-top: 18px;
     font-family: var(--font-hand);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--coral);
     text-align: right;
   }
@@ -409,32 +383,30 @@
   }
   .love-section .eyebrow{ color: var(--coral); }
   .knot-btn{
-    margin-top: 22px;
+    margin-top: 26px;
     background: var(--coral);
     color: #fff;
     border:none;
-    padding: 15px 34px;
-    font-size: 1rem;
+    padding: 16px 38px;
+    font-size: 1.05rem;
     font-weight:600;
     border-radius: 999px;
     cursor:pointer;
     box-shadow: 0 14px 26px -10px rgba(255,107,91,0.55);
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    min-height: 48px;   /* comfortable tap target on phones */
   }
   .knot-btn:hover{ transform: translateY(-3px); box-shadow: 0 18px 32px -10px rgba(255,107,91,0.7); background:#ff8171; }
   .knot-btn:active{ transform: translateY(0); }
 
   .love-message{
-    margin-top: 26px;
+    margin-top: 30px;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+    font-size: 1.5rem;
     color: var(--marigold);
     opacity:0;
     transform: scale(0.9);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    padding: 0 12px;
   }
   .love-message.show{ opacity:1; transform:scale(1); }
 
@@ -452,22 +424,16 @@
     background: var(--ink);
     color: var(--text-muted);
     text-align:center;
-    padding: 44px 20px 34px;
+    padding: 50px 24px 40px;
   }
   footer .names{
     font-family: var(--font-hand);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--text-on-ink);
     margin-bottom: 8px;
   }
   footer svg{ margin: 0 auto 14px; display:block; }
-  footer .fine{ font-size: 0.82rem; }
-
-  /* Tighter section rhythm on small phones */
-  @media (max-width: 480px){
-    section{ padding: 64px 0; }
-    .board{ padding: 24px 4px 6px; }
-  }
+  footer .fine{ font-size: 0.85rem; }
 </style>
 </head>
 <body>
@@ -489,7 +455,7 @@
     <svg class="hero-underline" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true">
       <path d="M4 18 Q 100 2 200 16 T 396 10"/>
     </svg>
-    <p class="hero-pair" id="hero-pair"><strong>Yogini</strong> &amp; <strong>Bhagya</strong> — best of pals</p>
+    <p class="hero-pair" id="hero-pair"><strong>You</strong> &amp; <strong>Your Friend</strong> — best of pals</p>
   </div>
 
   <a href="#board" class="scroll-cue" aria-label="Scroll to memory board">
@@ -559,7 +525,7 @@
   <canvas id="confetti"></canvas>
   <div class="wrap" style="position:relative; z-index:2;">
     <span class="eyebrow">last thing</span>
-    <h2 style="color:var(--text-on-ink); font-size:clamp(1.6rem,6vw,2.6rem);">Tie the knot on it</h2>
+    <h2 style="color:var(--text-on-ink); font-size:clamp(1.8rem,4vw,2.6rem);">Tie the knot on it</h2>
     <button class="knot-btn" id="knot-btn">Tie the Knot 🧵</button>
     <div class="love-message" id="love-message"></div>
   </div>
@@ -571,7 +537,7 @@
     <circle cx="23" cy="23" r="14" stroke="var(--coral)" stroke-width="2.5"/>
     <circle cx="23" cy="23" r="7" stroke="var(--teal)" stroke-width="2.5"/>
   </svg>
-  <div class="names" id="footer-names">Yogini &amp; Bhagya</div>
+  <div class="names" id="footer-names">You &amp; Your Friend</div>
   <div class="fine">made with care, for Friendship Day</div>
 </footer>
 
@@ -584,8 +550,8 @@
    ================================================================ */
 const CONFIG = {
   // Names
-  yourName: "Yogini",
-  friendName: "Bhagya",
+  yourName: "You",
+  friendName: "Your Friend",
 
   // Shown under the big hero title
   heroEyebrow: "a little something for you",
@@ -593,7 +559,7 @@ const CONFIG = {
 
   // Used to calculate the "days of friendship" counter.
   // Format: YYYY-MM-DD (the day you met, or any date that matters to you)
-  friendshipStartDate: "2023-06-05",
+  friendshipStartDate: "2015-08-15",
 
   // The memory board — up to 6 photos look best.
   // src: path to your own photo (e.g. "photos/trip.jpg"). Leave empty ""
@@ -601,18 +567,21 @@ const CONFIG = {
   // initials: shown when there's no photo yet
   // caption: short handwritten-style caption under the photo
   // colors: gradient used for the placeholder tile
- memories: [
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/755690050_1542307194055884_207897964554390599_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=1RshbTWG04AQ7kNvwFLMxLX&_nc_oc=AdoO9nUML8w1rHJBkIUTimk85NwNtg9xayQhyEz6XDIZs2EVMRpJ5ilkS9JBg-4zpRc&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AEglNca9uoDelUvZhmztGhCc2hyZQR8t9cUANE7h9D9OA&oe=6A9595E8", initials: "🎓", caption: "", colors: ["#ff6b5b", "#ffb84d"] },
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/690063459_1305884811483966_2997847212433763949_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=v-qsleKbckQQ7kNvwFftXrn&_nc_oc=AdrWVq2GRtsRC9CUfDvcaqdMMmvdA7hslDQpUKBSzE9o__hEhSapWCWVM7p7ZoMCtGo&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AG5TyEW0eS-ldiiXPn5l5D7SUWQbHlm128hkozCfcSw6w&oe=6A95B9E5", initials: "🎉", caption: "", colors: ["#2bb8a6", "#3a2a52"] },
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/687188502_26850458771288651_1968699015076724298_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=AMFvF5o1oHsQ7kNvwGlVh0k&_nc_oc=AdrHI1BqwvbqfbEmeaNXp7AZA8d2Xl3SeUZRThV9BUr7AvUaxO2uCevQ-d8n9la3rYM&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AHb4htTID7dyhnBGfX3agpZZfDM9VG3IkEU4LUOHOuGVQ&oe=6A959A92", initials: "🚗", caption: "", colors: ["#ffb84d", "#ff6b5b"] },
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/688104138_961671256575475_4075637089721981658_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=gyGq3ZF65lQQ7kNvwEw3zG0&_nc_oc=AdrursPSnxwPLdHr0E5sWMdU1FXnHPWMMNNBhUMnl9FSL3Ivp6f-tElRQ7selhuxOYU&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AF2-AGQlwvjuWbpW1R3ToEWaKXVC4Ixc_8pXllPe3KkFQ&oe=6A95ABEE", initials: "☕", caption: "", colors: ["#3a2a52", "#2bb8a6"] },
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/759126347_1052483220845884_8672319857776260820_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=EPZM3FL416wQ7kNvwHhw1eP&_nc_oc=AdrMnlXMtWT0AA7KHa_2GKIkjs33cPsrym1vWdGTzi_OsT3FGXMymYoxqM1dAFFln98&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AGcc2g5Ka_F7GsB6-4fAwcAUcdDaOYVEbdbQIDAomxXRw&oe=6A958BD1", initials: "🌧️", caption: "", colors: ["#ff6b5b", "#2bb8a6"] },
-    { src: "https://scontent.fblr11-1.fna.fbcdn.net/v/t1.15752-9/760544605_1516945599678039_6068154027666632744_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=4X7AjLgiYTIQ7kNvwHSQaFq&_nc_oc=AdqGzcj_6E7EbB6mxXNt6KF9_I29AtgZUtnHyLxcyaL2fTjH4g_UoIhM-Nu-L0NfDQk&_nc_zt=23&_nc_ht=scontent.fblr11-1.fna&_nc_ss=7baaf&oh=03_Q7cD6AG09X06TLrKoYvPzJMcp64CXwn_zBcRBbR4dEnqFCjA8A&oe=6A95981B", initials: "📸", caption: "", colors: ["#ffb84d", "#3a2a52"] }
+  memories: [
+    { src: "", initials: "🎓", caption: "That one summer", colors: ["#ff6b5b", "#ffb84d"] },
+    { src: "", initials: "🎉", caption: "Best birthday ever", colors: ["#2bb8a6", "#3a2a52"] },
+    { src: "", initials: "🚗", caption: "The road trip", colors: ["#ffb84d", "#ff6b5b"] },
+    { src: "", initials: "☕", caption: "Every coffee run", colors: ["#3a2a52", "#2bb8a6"] },
+    { src: "", initials: "🌧️", caption: "Rainy day, good talk", colors: ["#ff6b5b", "#2bb8a6"] },
+    { src: "", initials: "📸", caption: "Just because", colors: ["#ffb84d", "#3a2a52"] }
   ],
 
   // The letter inside the envelope. Use \n for line breaks.
   letterMessage:
-`Happy friendship day bhagya 😚 thankyou for coming in my life 🫶🏻🫂 I'm so lucky to have you 💕 love you more babe 😘.
+`Hey — just wanted to say thank you.
+For the calls that ran too long, the plans that
+changed twice, and the kind of friendship that
+never needed explaining.
 
 Here's to more of it.`,
 
@@ -638,7 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('div');
     card.className = 'polaroid';
     const photoInner = m.src
-      ? `<img src="${m.src}" alt="${escapeHtml(m.caption)}" onerror="this.parentElement.querySelector('img')?.remove(); this.parentElement.insertAdjacentHTML('afterbegin', '<div class=&quot;placeholder&quot; style=&quot;background:linear-gradient(135deg, ${m.colors[0]}, ${m.colors[1]})&quot;>${m.initials}</div>')">`
+      ? `<img src="${m.src}" alt="${escapeHtml(m.caption)}" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot; style=&quot;background:linear-gradient(135deg, ${m.colors[0]}, ${m.colors[1]})&quot;>${m.initials}</div>'">`
       : `<div class="placeholder" style="background:linear-gradient(135deg, ${m.colors[0]}, ${m.colors[1]})">${m.initials}</div>`;
     card.innerHTML = `
       <div class="tape"></div>
@@ -668,9 +637,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = envelope.classList.toggle('open');
     envelope.setAttribute('aria-expanded', String(isOpen));
     letterPaper.classList.toggle('is-open', isOpen);
-    if (isOpen) {
-      setTimeout(() => letterPaper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
-    }
   }
   envelope.addEventListener('click', toggleEnvelope);
   envelope.addEventListener('keydown', e => {
@@ -728,24 +694,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resizeCanvas() {
     const section = document.getElementById('send-love');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = section.clientWidth * dpr;
-    canvas.height = section.clientHeight * dpr;
-    canvas.style.width = section.clientWidth + 'px';
-    canvas.style.height = section.clientHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    canvas.width = section.clientWidth;
+    canvas.height = section.clientHeight;
   }
   window.addEventListener('resize', resizeCanvas);
-  window.addEventListener('orientationchange', resizeCanvas);
   resizeCanvas();
 
   const confettiColors = ['#ff6b5b', '#ffb84d', '#2bb8a6', '#f3ecff'];
 
   function burstConfetti() {
-    const w = canvas.clientWidth, h = canvas.clientHeight;
     particles = Array.from({ length: 90 }, () => ({
-      x: w / 2,
-      y: h * 0.35,
+      x: canvas.width / 2,
+      y: canvas.height * 0.35,
       vx: (Math.random() - 0.5) * 9,
       vy: Math.random() * -7 - 2,
       size: Math.random() * 6 + 4,
@@ -758,8 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderConfetti() {
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    ctx.clearRect(0, 0, w, h);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     let alive = false;
     particles.forEach(p => {
       p.vy += 0.22;
@@ -767,7 +726,7 @@ document.addEventListener('DOMContentLoaded', () => {
       p.y += p.vy;
       p.rotation += p.spin;
       p.life++;
-      if (p.y < h + 20) alive = true;
+      if (p.y < canvas.height + 20) alive = true;
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate((p.rotation * Math.PI) / 180);
@@ -776,7 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.restore();
     });
     if (alive) requestAnimationFrame(renderConfetti);
-    else { confettiRunning = false; ctx.clearRect(0, 0, w, h); }
+    else { confettiRunning = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }
   }
 
   knotBtn.addEventListener('click', () => {
